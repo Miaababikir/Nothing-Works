@@ -1,6 +1,10 @@
 module.exports = {
   theme: {
-    extend: {}
+    extend: {
+        fontFamily: {
+            'roboto': 'Roboto'
+        }
+    }
   },
   variants: {},
   plugins: []

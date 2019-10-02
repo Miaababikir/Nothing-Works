@@ -15,11 +15,17 @@ require('laravel-mix-purgecss');
  */
 
 mix.js('resources/js/app.js', 'public/js')
-   .postCss('resources/css/app.css', 'public/css')
-   .tailwind('./tailwind.config.js');
+    .postCss('resources/css/app.css', 'public/css')
+    .tailwind('./tailwind.config.js');
+
+mix.js('resources/js/dashboard.js', 'public/js')
+    .postCss('resources/css/dashboard.css', 'public/css')
+    .tailwind('./tailwind.config.js');
 
 if (mix.inProduction()) {
-  mix
-   .version()
-   .purgeCss();
+    mix
+        .version()
+        .purgeCss();
 }
+
+mix.browserSync('127.0.0.1:8000');

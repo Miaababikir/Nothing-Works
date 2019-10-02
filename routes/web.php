@@ -15,5 +15,10 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 
-Route::view('/dashboard', 'dashboard.index');
+
+
+Route::prefix('/dashboard')->group(function () {
+    Route::view('/', 'dashboard.index');
+    Route::view('/posts', 'dashboard.posts.index');
+});
 
