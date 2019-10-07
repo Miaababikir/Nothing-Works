@@ -20,5 +20,6 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::prefix('/dashboard')->group(function () {
     Route::view('/', 'dashboard.index');
     Route::view('/posts', 'dashboard.posts.index');
+    Route::view('/posts/create', 'dashboard.posts.create');
 });
 

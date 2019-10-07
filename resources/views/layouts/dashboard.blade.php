@@ -13,25 +13,22 @@
     <link href="{{ mix('css/dashboard.css') }}" rel="stylesheet">
 </head>
 <body class="bg-gray-100 font-sans leading-normal tracking-normal font-roboto">
-    <div id="app">
+    <div id="app" >
 
-        @include('dashboard.includes.nav')
+    @include('dashboard.includes.nav')
 
-        <!--Container-->
         <div class="container w-full mx-auto pt-20">
 
-            <div class="w-full px-4 md:px-0 md:mt-8 mb-16 text-gray-800 leading-normal">
+            <div class="w-full px-4 md:px-0 md:py-16 text-gray-800 leading-normal h-screen">
 
                 @yield('content')
 
             </div>
-
-
         </div>
-        <!--/container-->
 
-        @include('dashboard.includes.footer')
     </div>
+
+    @include('dashboard.includes.footer')
 
     <!-- Scripts -->
     <script src="{{ mix('js/dashboard.js') }}"></script>
