@@ -69,7 +69,7 @@
                     </a>
                 </li>
                 <li class="mr-6 my-2 md:my-0">
-                    <a href="/posts"
+                    <a href="/dashboard/posts"
                        class="block py-1 md:py-3 pl-1 align-middle no-underline hover:text-gray-900 border-b-2 border-white hover:border-teal-400 {{ (request()->is('dashboard/posts*')) ? 'nav-active' : 'text-gray-500' }}">
                         <i class="fas fa-edit fa-fw mr-3 {{ (request()->is('dashboard/posts*')) ? 'text-teal-400' : '' }}"></i><span class="pb-1 md:pb-0 text-sm">Posts</span>
                     </a>

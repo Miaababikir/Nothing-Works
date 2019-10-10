@@ -19,7 +19,7 @@
 
         <div class="container w-full mx-auto pt-20">
 
-            <div class="w-full px-4 md:px-0 md:py-16 text-gray-800 leading-normal h-screen">
+            <div class="w-full px-4 md:px-0 md:py-16 text-gray-800 leading-normal min-h-screen">
 
                 @yield('content')
 

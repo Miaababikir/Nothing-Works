@@ -10,7 +10,7 @@
                 <div class="flex justify-between items-center">
                     <h2 class="text-3xl">All posts</h2>
                     <div>
-                        <a href="#" class="btn-teal">New Post</a>
+                        <a href="/dashboard/posts/create" class="btn-teal">New Post</a>
                     </div>
                 </div>
                 <div class="bg-white shadow-md rounded my-6">
