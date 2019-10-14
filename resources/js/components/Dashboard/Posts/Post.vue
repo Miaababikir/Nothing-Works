@@ -10,28 +10,18 @@
     import AppParagraph from "../../UI/Post/Paragraph";
     import AppList from "../../UI/Post/List";
     import AppImage from "../../UI/Post/Image";
+    import AppCode from "../../UI/Post/Code";
 
     export default {
         components: {
             AppHeader,
             AppParagraph,
             AppList,
-            AppImage
+            AppImage,
+            AppCode
         },
         data() {
             return {
-                block: {
-                    "type": "image",
-                    "data": {
-                        "file": {
-                            "url": "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=448&q=80"
-                        },
-                        "caption": "",
-                        "withBorder": true,
-                        "stretched": false,
-                        "withBackground": false
-                    }
-                },
                 content: {
                     "time": 1570425050756,
                     "blocks": [
@@ -99,6 +89,12 @@
                             }
                         },
                         {
+                            "type" : "code",
+                            "data" : {
+                                "code" : "\n    public function index()     {\n\n       $app = new App();\n    \n       return $app;\n\n    }"
+                            }
+                        },
+                        {
                             "type": "paragraph",
                             "data": {
                                 "text": "Given data can be used as you want: render with HTML for <code class=\"inline-code\">Web clients</code>, render natively for <code class=\"inline-code\">mobile apps</code>, create markup for <code class=\"inline-code\">Facebook Instant Articles</code> or <code class=\"inline-code\">Google AMP</code>, generate an <code class=\"inline-code\">audio version</code> and so on."
@@ -116,18 +112,6 @@
                                 "text": "We have been working on this project more than three years. Several large media projects help us to test and debug the Editor, to make it's core more stable. At the same time we significantly improved the API. Now, it can be used to create any plugin for any task. Hope you enjoy. 😏"
                             }
                         },
-                        {
-                            "type": "image",
-                            "data": {
-                                "file": {
-                                    "url": "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=448&q=80"
-                                },
-                                "caption": "",
-                                "withBorder": true,
-                                "stretched": false,
-                                "withBackground": false
-                            }
-                        }
                     ],
                     "version": "2.15.0"
                 },
@@ -146,9 +130,5 @@
 
     .post h1, h2, h3, p, ul, img {
         margin-bottom: 1.5rem;
-    }
-
-    .post img {
-        display: inline;
     }
 </style>

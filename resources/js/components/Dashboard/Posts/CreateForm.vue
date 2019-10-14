@@ -5,6 +5,9 @@
                 <div class="w-3/4">
                     <div class="bg-white border rounded shadow min-h-screen">
                         <div class="py-16 px-10">
+                            <div class="ml-24">
+                                <input type="text" class="border-0 focus:outline-none w-full h-24 text-3xl" placeholder="Your title here">
+                            </div>
                             <div id="editorjs" class="w-full min-h-full"></div>
                         </div>
                     </div>
@@ -14,13 +17,6 @@
                         <div class="p-5">
                             <h3 class="text-xl font-medium">Post details</h3>
                             <div class="mt-4">
-                                <div class="mt-4">
-                                    <label class="block">
-                                        <span class="text-gray-700">Title</span>
-                                        <input class="form-input mt-1 block w-full"
-                                               placeholder="Getting started with..">
-                                    </label>
-                                </div>
                                 <div class="mt-4">
                                     <label class="block">
                                         <span class="text-gray-700">Slug</span>
@@ -166,7 +162,6 @@
                 tools: {
                     header: Header,
                     list: List,
-                    quote: Quote,
                     code: Code,
                     inlineCode: InlineCode,
                     marker: Marker,
