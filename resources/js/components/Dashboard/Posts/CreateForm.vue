@@ -57,12 +57,13 @@
     export default {
         data() {
             return {
-                content: '',
+                content: '\npublic function index() {\n    $app = new App();\n}',
                 editor: null
             }
         },
         created() {
             this.editor = new EditorJS({
+                readOnly: true,
                 data: {
                     "time" : 1570425050756,
                     "blocks" : [
@@ -176,7 +177,7 @@
         methods: {
             addPost() {
                 this.editor.save().then((outputData) => {
-                    console.log('Article data: ', outputData)
+                    console.log('Post data: ', outputData)
                 }).catch((error) => {
                     console.log('Saving failed: ', error)
                 });
