@@ -12,7 +12,7 @@
                 </div>
                 <div class="bg-white shadow-md rounded my-6">
                     <div class="bg-white border rounded shadow min-h-screen">
-                        <div class="py-16 px-10">
+                        <div class="py-16 px-32 text-xl">
                             <post />
                         </div>
                     </div>

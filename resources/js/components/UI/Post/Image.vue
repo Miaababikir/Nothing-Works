@@ -1,5 +1,5 @@
 <template>
-    <img :src="block.data.file.url" />
+    <p class="text-center"><img :src="block.data.file.url"/></p>
 </template>
 
 <script>

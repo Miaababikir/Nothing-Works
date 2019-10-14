@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="post">
         <component v-for="(block, index) in content.blocks" :key="index" :is="'app-' + block.type" :block="block"></component>
     </div>
 </template>
@@ -139,4 +139,16 @@
 
 <style scoped>
 
+    .post {
+        width: 100%;
+        height: 100%;
+    }
+
+    .post h1, h2, h3, p, ul, img {
+        margin-bottom: 1.5rem;
+    }
+
+    .post img {
+        display: inline;
+    }
 </style>
