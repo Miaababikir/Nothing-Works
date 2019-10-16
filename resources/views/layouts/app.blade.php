@@ -33,7 +33,7 @@
                         <a class="px-4 font-bold" href="/">Home</a>
                     </li>
                     <li>
-                        <a class="px-4 hover:text-gray-800" href="#">About</a>
+                        <a class="px-4 hover:text-gray-800" href="#">Login</a>
                     </li>
                     <li>
                         <a class="px-4 py-2 text-white rounded bg-teal-400 hover:bg-teal-500" href="#">Signup</a>

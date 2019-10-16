@@ -17,7 +17,12 @@ Route::get('/', 'HomeController@index')->name('home');
 
 
 
-Route::prefix('/dashboard')->group(function () {
+Route::prefix('/dashboard')->middleware('auth')->group(function () {
+
+    Route::post('/tags', 'Dashboard\TagController@store');
+    Route::put('/tags/{tag}', 'Dashboard\TagController@update');
+    Route::delete('/tags/{tag}', 'Dashboard\TagController@destroy');
+
     Route::view('/', 'dashboard.index');
     Route::view('/posts', 'dashboard.posts.index');
     Route::view('/posts/show', 'dashboard.posts.show');
