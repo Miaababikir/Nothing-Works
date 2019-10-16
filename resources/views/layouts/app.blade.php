@@ -13,41 +13,267 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body class="bg-gray-100 h-screen antialiased leading-none">
-    <div id="app">
-        <nav class="bg-blue-900 shadow mb-8 py-6">
-            <div class="container mx-auto px-6 md:px-0">
-                <div class="flex items-center justify-center">
-                    <div class="mr-6">
-                        <a href="{{ url('/') }}" class="text-lg font-semibold text-gray-100 no-underline">
-                            {{ config('app.name', 'Laravel') }}
-                        </a>
-                    </div>
-                    <div class="flex-1 text-right">
-                        @guest
-                            <a class="no-underline hover:underline text-gray-300 text-sm p-3" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            @if (Route::has('register'))
-                                <a class="no-underline hover:underline text-gray-300 text-sm p-3" href="{{ route('register') }}">{{ __('Register') }}</a>
-                            @endif
-                        @else
-                            <span class="text-gray-300 text-sm pr-4">{{ Auth::user()->name }}</span>
+<div id="app">
+    <nav>
+        <div class="container mx-auto px-6 py-2 flex justify-between items-center">
+            <a class="font-bold text-2xl flex items-center" href="#">
+                <img src="images/logo.png" alt="logo" class="h-12 "> <span>Nothing Works</span>
+            </a>
+            <div class="block lg:hidden">
+                <button class="flex items-center px-3 py-2 border rounded text-gray-500 border-gray-600 hover:text-gray-800 hover:border-teal-500 appearance-none focus:outline-none">
+                    <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <title>Menu</title>
+                        <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="hidden lg:block">
+                <ul class="inline-flex">
+                    <li>
+                        <a class="px-4 font-bold" href="/">Home</a>
+                    </li>
+                    <li>
+                        <a class="px-4 hover:text-gray-800" href="#">About</a>
+                    </li>
+                    <li>
+                        <a class="px-4 py-2 text-white rounded bg-teal-400 hover:bg-teal-500" href="#">Signup</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-                            <a href="{{ route('logout') }}"
-                               class="no-underline hover:underline text-gray-300 text-sm p-3"
-                               onclick="event.preventDefault();
-                                    document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
-                                {{ csrf_field() }}
-                            </form>
-                        @endguest
+    <div class="py-20" style="background: linear-gradient(90deg, #4fd1c5 0%, #63b3ed 100%)">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-2 text-white">
+                The professional publishing platform
+            </h2>
+            <h3 class="text-2xl mb-8 text-gray-200">
+                Fully open source, adaptable platform for building and running a modern online publication.
+            </h3>
+            <button class="bg-white font-bold rounded-full py-4 px-8 shadow-lg uppercase tracking-wider">
+                Signup Now
+            </button>
+        </div>
+    </div>
+
+    <section class="container mx-auto px-6 p-10">
+        <h2 class="text-4xl font-bold text-center text-gray-800 mb-8">
+            Features
+        </h2>
+        <div class="flex items-center flex-wrap mb-20">
+            <div class="w-full md:w-1/2">
+                <h4 class="text-3xl text-gray-800 font-bold mb-3">
+                    Exercise Metrics
+                </h4>
+                <p class="text-gray-600 mb-8">
+                    Our Smart Health Monitoring Wristwatch is able to capture you vitals
+                    while you exercise. You can create different category of exercises
+                    and can track your vitals on the go.
+                </p>
+            </div>
+            <div class="w-full md:w-1/2">
+                <img src="images/health.svg" alt="Monitoring" />
+            </div>
+        </div>
+        <div class="flex items-center flex-wrap mb-20">
+            <div class="w-full md:w-1/2">
+                <img src="images/report.svg" alt="Reporting" />
+            </div>
+            <div class="w-full md:w-1/2 pl-10">
+                <h4 class="text-3xl text-gray-800 font-bold mb-3">
+                    Reporting
+                </h4>
+                <p class="text-gray-600 mb-8">
+                    Our Smart Health Monitoring Wristwatch can generate a comprehensive
+                    report on your vitals depending on your settings either daily,
+                    weekly, monthly, quarterly or yearly.
+                </p>
+            </div>
+        </div>
+        <div class="flex items-center flex-wrap mb-20">
+            <div class="w-full md:w-1/2">
+                <h4 class="text-3xl text-gray-800 font-bold mb-3">
+                    Syncing
+                </h4>
+                <p class="text-gray-600 mb-8">
+                    Our Smart Health Monitoring Wristwatch allows you to sync data
+                    across all your mobile devices whether iOS, Android or Windows OS
+                    and also to your laptop whether MacOS, GNU/LInux or Windows OS.
+                </p>
+            </div>
+            <div class="w-full md:w-1/2">
+                <img src="images/sync.svg" alt="Syncing" />
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-gray-100">
+        <div class="container mx-auto px-6 py-20">
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-8">
+                Testimonials
+            </h2>
+            <div class="flex flex-wrap">
+                <div class="w-full md:w-1/3 px-2 mb-4">
+                    <div class="bg-white rounded shadow py-2">
+                        <p class="text-gray-800 text-base px-6 mb-5">
+                            Monitoring and tracking my health vitals anywhere I go and on
+                            any platform I use has never been easier.
+                        </p>
+                        <p class="text-gray-500 text-xs md:text-sm px-6">
+                            John Doe
+                        </p>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/3 px-2 mb-4">
+                    <div class="bg-white rounded shadow py-2">
+                        <p class="text-gray-800 text-base px-6 mb-5">
+                            As an Athlete, this is the perfect product for me. I wear my
+                            Smart Health Monitoring Wristwatch everywhere i go, even in the
+                            bathroom since it's waterproof.
+                        </p>
+                        <p class="text-gray-500 text-xs md:text-sm px-6">
+                            Jane Doe
+                        </p>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/3 px-2 mb-4">
+                    <div class="bg-white rounded shadow py-2">
+                        <p class="text-gray-800 text-base px-6 mb-5">
+                            I don't regret buying this wearble gadget. One of the best
+                            gadgets I own!.
+                        </p>
+                        <p class="text-gray-500 text-xs md:text-sm px-6">
+                            James Doe
+                        </p>
                     </div>
                 </div>
             </div>
-        </nav>
+        </div>
+    </section>
 
-        @yield('content')
-    </div>
+    <section style="background-color: #667eea">
+        <div class="container mx-auto px-6 text-center py-20">
+            <h2 class="mb-6 text-4xl font-bold text-center text-white">
+                Limited in Stock
+            </h2>
+            <h3 class="my-4 text-2xl text-white">
+                Get yourself the Smart Health Monitoring Wristwatch!
+            </h3>
+            <button
+                class="bg-white font-bold rounded-full mt-6 py-4 px-8 shadow-lg uppercase tracking-wider"
+            >
+                Pre Order
+            </button>
+        </div>
+    </section>
 
-    <!-- Scripts -->
-    <script src="{{ mix('js/app.js') }}"></script>
+    <footer class="bg-gray-100">
+        <div class="container mx-auto px-6 pt-10 pb-6">
+            <div class="flex flex-wrap">
+                <div class="w-full md:w-1/4 text-center md:text-left ">
+                    <h5 class="uppercase mb-6 font-bold">Links</h5>
+                    <ul class="mb-4">
+                        <li class="mt-2">
+                            <a
+                                href="#"
+                                class="hover:underline text-gray-600 hover:text-orange-500"
+                            >FAQ</a
+                            >
+                        </li>
+                        <li class="mt-2">
+                            <a
+                                href="#"
+                                class="hover:underline text-gray-600 hover:text-orange-500"
+                            >Help</a
+                            >
+                        </li>
+                        <li class="mt-2">
+                            <a
+                                href="#"
+                                class="hover:underline text-gray-600 hover:text-orange-500"
+                            >Support</a
+                            >
+                        </li>
+                    </ul>
+                </div>
+                <div class="w-full md:w-1/4 text-center md:text-left ">
+                    <h5 class="uppercase mb-6 font-bold">Legal</h5>
+                    <ul class="mb-4">
+                        <li class="mt-2">
+                            <a
+                                href="#"
+                                class="hover:underline text-gray-600 hover:text-orange-500"
+                            >Terms</a
+                            >
+                        </li>
+                        <li class="mt-2">
+                            <a
+                                href="#"
+                                class="hover:underline text-gray-600 hover:text-orange-500"
+                            >Privacy</a
+                            >
+                        </li>
+                    </ul>
+                </div>
+                <div class="w-full md:w-1/4 text-center md:text-left ">
+                    <h5 class="uppercase mb-6 font-bold">Social</h5>
+                    <ul class="mb-4">
+                        <li class="mt-2">
+                            <a
+                                href="#"
+                                class="hover:underline text-gray-600 hover:text-orange-500"
+                            >Facebook</a
+                            >
+                        </li>
+                        <li class="mt-2">
+                            <a
+                                href="#"
+                                class="hover:underline text-gray-600 hover:text-orange-500"
+                            >Linkedin</a
+                            >
+                        </li>
+                        <li class="mt-2">
+                            <a
+                                href="#"
+                                class="hover:underline text-gray-600 hover:text-orange-500"
+                            >Twitter</a
+                            >
+                        </li>
+                    </ul>
+                </div>
+                <div class="w-full md:w-1/4 text-center md:text-left ">
+                    <h5 class="uppercase mb-6 font-bold">Company</h5>
+                    <ul class="mb-4">
+                        <li class="mt-2">
+                            <a
+                                href="#"
+                                class="hover:underline text-gray-600 hover:text-orange-500"
+                            >Official Blog</a
+                            >
+                        </li>
+                        <li class="mt-2">
+                            <a
+                                href="#"
+                                class="hover:underline text-gray-600 hover:text-orange-500"
+                            >About Us</a
+                            >
+                        </li>
+                        <li class="mt-2">
+                            <a
+                                href="#"
+                                class="hover:underline text-gray-600 hover:text-orange-500"
+                            >Contact</a
+                            >
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<!-- Scripts -->
+<script src="{{ mix('js/app.js') }}"></script>
 </body>
 </html>
