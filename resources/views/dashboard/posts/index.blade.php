@@ -10,7 +10,7 @@
                 <div class="flex justify-between items-center">
                     <h2 class="text-3xl">All posts</h2>
                     <div>
-                        <a href="/dashboard/posts/create" class="btn-teal">New Post</a>
+                        <a href="/dashboard/posts/create" class="btn btn-teal">New Post</a>
                     </div>
                 </div>
                 <div class="bg-white shadow-md rounded my-6">
@@ -40,10 +40,10 @@
                             </td>
                             <td class="py-4 px-6 border-b border-gray-300">
                                 <a href="#"
-                                   class="btn-teal text-xs"><i
+                                   class="btn btn-teal text-xs"><i
                                         class="fa fa-edit"></i></a>
                                 <a href="#"
-                                   class="btn-blue text-xs"><i
+                                   class="btn btn-blue text-xs"><i
                                         class="fa fa-external-link"></i></a>
                             </td>
                         </tr>
@@ -55,10 +55,10 @@
                             </td>
                             <td class="py-4 px-6 border-b border-gray-300">
                                 <a href="#"
-                                   class="btn-teal text-xs"><i
+                                   class="btn btn-teal text-xs"><i
                                         class="fa fa-edit"></i></a>
                                 <a href="#"
-                                   class="btn-blue text-xs"><i
+                                   class="btn btn-blue text-xs"><i
                                         class="fa fa-external-link"></i></a>
                             </td>
                         </tr>
@@ -70,10 +70,10 @@
                             </td>
                             <td class="py-4 px-6 border-b border-gray-300">
                                 <a href="#"
-                                   class="btn-teal text-xs"><i
+                                   class="btn btn-teal text-xs"><i
                                         class="fa fa-edit"></i></a>
                                 <a href="#"
-                                   class="btn-blue text-xs"><i
+                                   class="btn btn-blue text-xs"><i
                                         class="fa fa-external-link"></i></a>
                             </td>
                         </tr>
@@ -85,10 +85,10 @@
                             </td>
                             <td class="py-4 px-6 border-b border-gray-300">
                                 <a href="#"
-                                   class="btn-teal text-xs"><i
+                                   class="btn btn-teal text-xs"><i
                                         class="fa fa-edit"></i></a>
                                 <a href="#"
-                                   class="btn-blue text-xs"><i
+                                   class="btn btn-blue text-xs"><i
                                         class="fa fa-external-link"></i></a>
                             </td>
                         </tr>

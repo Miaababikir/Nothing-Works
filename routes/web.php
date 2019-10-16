@@ -22,5 +22,6 @@ Route::prefix('/dashboard')->group(function () {
     Route::view('/posts', 'dashboard.posts.index');
     Route::view('/posts/show', 'dashboard.posts.show');
     Route::view('/posts/create', 'dashboard.posts.create');
+    Route::view('/tags', 'dashboard.tags.index');
 });
 

@@ -909,6 +909,16 @@ h3 {
   color: #4fd1c5;
 }
 
+.btn {
+  color: #f7fafc;
+  font-weight: 700;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-radius: 0.25rem;
+}
+
 .btn-teal {
   color: #f7fafc;
   font-weight: 700;
@@ -937,6 +947,21 @@ h3 {
 
 .btn-blue:hover {
   background-color: #4299e1;
+}
+
+.btn-red {
+  color: #f7fafc;
+  font-weight: 700;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-radius: 0.25rem;
+  background-color: #fc8181;
+}
+
+.btn-red:hover {
+  background-color: #f56565;
 }
 
 .sr-only{

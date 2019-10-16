@@ -6,10 +6,15 @@
 
 require('./bootstrap');
 
+import VModal from 'vue-js-modal';
+
 window.Vue = require('vue');
+
+Vue.use(VModal);
 
 Vue.component('create-post', require('./components/Dashboard/Posts/CreateForm.vue').default);
 Vue.component('post', require('./components/Dashboard/Posts/Post.vue').default);
+Vue.component('tags', require('./components/Dashboard/Tags/Tags.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

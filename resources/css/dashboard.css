@@ -19,8 +19,12 @@ h3 {
     @apply border-b-2 border-teal-400 text-teal-400;
 }
 
+.btn {
+    @apply text-gray-100 font-bold py-2 px-4 rounded;
+}
+
 .btn-teal {
-    @apply text-gray-100 font-bold py-2 px-4 rounded bg-teal-400;
+    @apply btn bg-teal-400;
 }
 
 .btn-teal:hover {
@@ -28,11 +32,19 @@ h3 {
 }
 
 .btn-blue {
-    @apply text-gray-100 font-bold py-2 px-4 rounded bg-blue-400;
+    @apply btn bg-blue-400;
 }
 
 .btn-blue:hover {
     @apply bg-blue-500;
+}
+
+.btn-red {
+    @apply btn bg-red-400;
+}
+
+.btn-red:hover {
+    @apply bg-red-500;
 }
 
 @tailwind utilities;
