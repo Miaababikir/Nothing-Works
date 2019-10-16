@@ -8,6 +8,16 @@ use Illuminate\Http\Request;
 
 class TagController extends Controller
 {
+
+    public function index()
+    {
+        $tags = Tag::all();
+
+        return view('dashboard.tags.index', [
+            'tags' => $tags
+        ]);
+    }
+
     public function store(Request $request)
     {
         $request->validate(['name' => 'required']);

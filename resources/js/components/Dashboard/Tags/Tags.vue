@@ -22,51 +22,15 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr class="hover:bg-gray-200">
-                    <td class="py-4 px-6 border-b border-gray-300">1</td>
-                    <td class="py-4 px-6 border-b border-gray-300">New York</td>
+                <tr class="hover:bg-gray-200" v-for="tag in data">
+                    <td class="py-4 px-6 border-b border-gray-300">{{ tag.id }}</td>
+                    <td class="py-4 px-6 border-b border-gray-300">{{ tag.name }}</td>
                     <td class="py-4 px-6 border-b border-gray-300">
                         <a href="#"
                            class="btn btn-teal text-xs"><i
-                            class="fa fa-edit" @click="$modal.show('edit-tag')"></i></a>
+                            class="fa fa-edit" @click="editTag(tag)"></i></a>
                         <a href="#"
-                           class="btn btn-red text-xs" @click="$modal.show('delete-tag')"><i
-                            class="fa fa-trash"></i></a>
-                    </td>
-                </tr>
-                <tr class="hover:bg-gray-200">
-                    <td class="py-4 px-6 border-b border-gray-300">2</td>
-                    <td class="py-4 px-6 border-b border-gray-300">New York</td>
-                    <td class="py-4 px-6 border-b border-gray-300">
-                        <a href="#"
-                           class="btn btn-teal text-xs"><i
-                            class="fa fa-edit" @click="$modal.show('edit-tag')"></i></a>
-                        <a href="#"
-                           class="btn btn-red text-xs" @click="$modal.show('delete-tag')"><i
-                            class="fa fa-trash"></i></a>
-                    </td>
-                </tr>
-                <tr class="hover:bg-gray-200">
-                    <td class="py-4 px-6 border-b border-gray-300">3</td>
-                    <td class="py-4 px-6 border-b border-gray-300">New York</td>
-                    <td class="py-4 px-6 border-b border-gray-300">
-                        <a href="#"
-                           class="btn btn-teal text-xs"><i
-                            class="fa fa-edit" @click="$modal.show('edit-tag')"></i></a>
-                        <a href="#"
-                           class="btn btn-red text-xs" @click="$modal.show('delete-tag')"><i
-                            class="fa fa-trash"></i></a>
-                    </td>
-                </tr>
-                <tr class="hover:bg-gray-200">
-                    <td class="py-4 px-6 border-b border-gray-300">4</td>
-                    <td class="py-4 px-6 border-b border-gray-300">New York</td>
-                    <td class="py-4 px-6 border-b border-gray-300">
-                        <a href="#"
-                           class="btn btn-teal text-xs" @click="$modal.show('edit-tag')"><i
-                            class="fa fa-edit"></i></a>
-                        <a href="#"
-                           class="btn btn-red text-xs" @click="$modal.show('delete-tag')"><i
+                           class="btn btn-red text-xs" @click="showTag(tag)"><i
                             class="fa fa-trash"></i></a>
                     </td>
                 </tr>
@@ -80,17 +44,19 @@
                 </div>
                 <hr>
                 <div>
-                    <form action="#">
+                    <form @submit.prevent="addTag">
                         <div class="mt-4">
                             <label class="block">
                                 <span class="text-gray-700">Name</span>
                                 <input class="form-input mt-1 block w-full"
-                                       placeholder="Your tag name">
+                                       placeholder="Your tag name" required v-model="tag.name">
                             </label>
                         </div>
                         <div class="mt-4">
                             <div class="flex justify-end">
-                                <button type="submit" class="py-2 px-4 mr-2 text-gray-700" @click.prevent="$modal.hide('new-tag')">Cancel</button>
+                                <button type="submit" class="py-2 px-4 mr-2 text-gray-700"
+                                        @click.prevent="$modal.hide('new-tag')">Cancel
+                                </button>
                                 <button type="submit" class="btn btn-teal">Add Tag</button>
                             </div>
                         </div>
@@ -106,17 +72,19 @@
                 </div>
                 <hr>
                 <div>
-                    <form action="#">
+                    <form @submit.prevent="updateTag">
                         <div class="mt-4">
                             <label class="block">
                                 <span class="text-gray-700">Name</span>
                                 <input class="form-input mt-1 block w-full"
-                                       placeholder="Your tag name">
+                                       placeholder="Your tag name" v-model="tag.name">
                             </label>
                         </div>
                         <div class="mt-4">
                             <div class="flex justify-end">
-                                <button type="submit" class="py-2 px-4 mr-2 text-gray-700" @click.prevent="$modal.hide('edit-tag')">Cancel</button>
+                                <button type="submit" class="py-2 px-4 mr-2 text-gray-700"
+                                        @click.prevent="$modal.hide('edit-tag')">Cancel
+                                </button>
                                 <button type="submit" class="btn btn-teal">Edit Tag</button>
                             </div>
                         </div>
@@ -133,12 +101,14 @@
                 <hr>
                 <div>
                     <div class="mt-4">
-                        <p>Are you sure you want to delete this tag?</p>
+                        <p>Are you sure you want to delete <strong>{{ tag.name }}</strong> tag?</p>
                     </div>
                     <div class="mt-4">
                         <div class="flex justify-end">
-                            <button type="submit" class="py-2 px-4 mr-2 text-gray-700" @click.prevent="$modal.hide('delete-tag')">Cancel</button>
-                            <button type="submit" class="btn btn-red">Delete Tag</button>
+                            <button type="submit" class="py-2 px-4 mr-2 text-gray-700"
+                                    @click.prevent="$modal.hide('delete-tag')">Cancel
+                            </button>
+                            <button class="btn btn-red" @click="deleteTag">Delete Tag</button>
                         </div>
                     </div>
                 </div>
@@ -149,7 +119,64 @@
 </template>
 
 <script>
-    export default {}
+    export default {
+        props: ['data'],
+        data() {
+            return {
+                tag: {
+                    name: ''
+                }
+            }
+        },
+
+        methods: {
+            addTag() {
+                axios.post('/dashboard/tags', {
+                    name: this.tag.name
+                })
+                    .then(response => {
+                        this.tag = {};
+                        console.log(response);
+                        location.reload();
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    });
+            },
+            editTag(tag) {
+                this.tag = tag;
+                this.$modal.show('edit-tag');
+            },
+            updateTag() {
+                axios.put(`/dashboard/tags/${this.tag.id}`, {
+                    name: this.tag.name
+                })
+                    .then(response => {
+                        this.tag = {};
+                        console.log(response);
+                        location.reload();
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    });
+            },
+            showTag(tag) {
+                this.tag = tag;
+                this.$modal.show('delete-tag');
+            },
+            deleteTag() {
+                axios.delete(`/dashboard/tags/${this.tag.id}`)
+                    .then(response => {
+                        this.tag = {};
+                        console.log(response);
+                        location.reload();
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    })
+            }
+        }
+    }
 </script>
 
 <style scoped>

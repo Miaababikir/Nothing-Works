@@ -2401,37 +2401,63 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['data'],
+  data: function data() {
+    return {
+      tag: {
+        name: ''
+      }
+    };
+  },
+  methods: {
+    addTag: function addTag() {
+      var _this = this;
+
+      axios.post('/dashboard/tags', {
+        name: this.tag.name
+      }).then(function (response) {
+        _this.tag = {};
+        console.log(response);
+        location.reload();
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    editTag: function editTag(tag) {
+      this.tag = tag;
+      this.$modal.show('edit-tag');
+    },
+    updateTag: function updateTag() {
+      var _this2 = this;
+
+      axios.put("/dashboard/tags/".concat(this.tag.id), {
+        name: this.tag.name
+      }).then(function (response) {
+        _this2.tag = {};
+        console.log(response);
+        location.reload();
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    showTag: function showTag(tag) {
+      this.tag = tag;
+      this.$modal.show('delete-tag');
+    },
+    deleteTag: function deleteTag() {
+      var _this3 = this;
+
+      axios["delete"]("/dashboard/tags/".concat(this.tag.id)).then(function (response) {
+        _this3.tag = {};
+        console.log(response);
+        location.reload();
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    }
+  }
+});
 
 /***/ }),
 
@@ -45533,170 +45559,63 @@ var render = function() {
         _c("table", { staticClass: "text-left w-full border-collapse" }, [
           _vm._m(0),
           _vm._v(" "),
-          _c("tbody", [
-            _c("tr", { staticClass: "hover:bg-gray-200" }, [
-              _c("td", { staticClass: "py-4 px-6 border-b border-gray-300" }, [
-                _vm._v("1")
-              ]),
-              _vm._v(" "),
-              _c("td", { staticClass: "py-4 px-6 border-b border-gray-300" }, [
-                _vm._v("New York")
-              ]),
-              _vm._v(" "),
-              _c("td", { staticClass: "py-4 px-6 border-b border-gray-300" }, [
+          _c(
+            "tbody",
+            _vm._l(_vm.data, function(tag) {
+              return _c("tr", { staticClass: "hover:bg-gray-200" }, [
                 _c(
-                  "a",
-                  { staticClass: "btn btn-teal text-xs", attrs: { href: "#" } },
+                  "td",
+                  { staticClass: "py-4 px-6 border-b border-gray-300" },
+                  [_vm._v(_vm._s(tag.id))]
+                ),
+                _vm._v(" "),
+                _c(
+                  "td",
+                  { staticClass: "py-4 px-6 border-b border-gray-300" },
+                  [_vm._v(_vm._s(tag.name))]
+                ),
+                _vm._v(" "),
+                _c(
+                  "td",
+                  { staticClass: "py-4 px-6 border-b border-gray-300" },
                   [
-                    _c("i", {
-                      staticClass: "fa fa-edit",
-                      on: {
-                        click: function($event) {
-                          return _vm.$modal.show("edit-tag")
+                    _c(
+                      "a",
+                      {
+                        staticClass: "btn btn-teal text-xs",
+                        attrs: { href: "#" }
+                      },
+                      [
+                        _c("i", {
+                          staticClass: "fa fa-edit",
+                          on: {
+                            click: function($event) {
+                              return _vm.editTag(tag)
+                            }
+                          }
+                        })
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "a",
+                      {
+                        staticClass: "btn btn-red text-xs",
+                        attrs: { href: "#" },
+                        on: {
+                          click: function($event) {
+                            return _vm.showTag(tag)
+                          }
                         }
-                      }
-                    })
+                      },
+                      [_c("i", { staticClass: "fa fa-trash" })]
+                    )
                   ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "btn btn-red text-xs",
-                    attrs: { href: "#" },
-                    on: {
-                      click: function($event) {
-                        return _vm.$modal.show("delete-tag")
-                      }
-                    }
-                  },
-                  [_c("i", { staticClass: "fa fa-trash" })]
                 )
               ])
-            ]),
-            _vm._v(" "),
-            _c("tr", { staticClass: "hover:bg-gray-200" }, [
-              _c("td", { staticClass: "py-4 px-6 border-b border-gray-300" }, [
-                _vm._v("2")
-              ]),
-              _vm._v(" "),
-              _c("td", { staticClass: "py-4 px-6 border-b border-gray-300" }, [
-                _vm._v("New York")
-              ]),
-              _vm._v(" "),
-              _c("td", { staticClass: "py-4 px-6 border-b border-gray-300" }, [
-                _c(
-                  "a",
-                  { staticClass: "btn btn-teal text-xs", attrs: { href: "#" } },
-                  [
-                    _c("i", {
-                      staticClass: "fa fa-edit",
-                      on: {
-                        click: function($event) {
-                          return _vm.$modal.show("edit-tag")
-                        }
-                      }
-                    })
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "btn btn-red text-xs",
-                    attrs: { href: "#" },
-                    on: {
-                      click: function($event) {
-                        return _vm.$modal.show("delete-tag")
-                      }
-                    }
-                  },
-                  [_c("i", { staticClass: "fa fa-trash" })]
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("tr", { staticClass: "hover:bg-gray-200" }, [
-              _c("td", { staticClass: "py-4 px-6 border-b border-gray-300" }, [
-                _vm._v("3")
-              ]),
-              _vm._v(" "),
-              _c("td", { staticClass: "py-4 px-6 border-b border-gray-300" }, [
-                _vm._v("New York")
-              ]),
-              _vm._v(" "),
-              _c("td", { staticClass: "py-4 px-6 border-b border-gray-300" }, [
-                _c(
-                  "a",
-                  { staticClass: "btn btn-teal text-xs", attrs: { href: "#" } },
-                  [
-                    _c("i", {
-                      staticClass: "fa fa-edit",
-                      on: {
-                        click: function($event) {
-                          return _vm.$modal.show("edit-tag")
-                        }
-                      }
-                    })
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "btn btn-red text-xs",
-                    attrs: { href: "#" },
-                    on: {
-                      click: function($event) {
-                        return _vm.$modal.show("delete-tag")
-                      }
-                    }
-                  },
-                  [_c("i", { staticClass: "fa fa-trash" })]
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("tr", { staticClass: "hover:bg-gray-200" }, [
-              _c("td", { staticClass: "py-4 px-6 border-b border-gray-300" }, [
-                _vm._v("4")
-              ]),
-              _vm._v(" "),
-              _c("td", { staticClass: "py-4 px-6 border-b border-gray-300" }, [
-                _vm._v("New York")
-              ]),
-              _vm._v(" "),
-              _c("td", { staticClass: "py-4 px-6 border-b border-gray-300" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "btn btn-teal text-xs",
-                    attrs: { href: "#" },
-                    on: {
-                      click: function($event) {
-                        return _vm.$modal.show("edit-tag")
-                      }
-                    }
-                  },
-                  [_c("i", { staticClass: "fa fa-edit" })]
-                ),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "btn btn-red text-xs",
-                    attrs: { href: "#" },
-                    on: {
-                      click: function($event) {
-                        return _vm.$modal.show("delete-tag")
-                      }
-                    }
-                  },
-                  [_c("i", { staticClass: "fa fa-trash" })]
-                )
-              ])
-            ])
-          ])
+            }),
+            0
+          )
         ])
       ]),
       _vm._v(" "),
@@ -45715,45 +45634,76 @@ var render = function() {
           _c("hr"),
           _vm._v(" "),
           _c("div", [
-            _c("form", { attrs: { action: "#" } }, [
-              _c("div", { staticClass: "mt-4" }, [
-                _c("label", { staticClass: "block" }, [
-                  _c("span", { staticClass: "text-gray-700" }, [
-                    _vm._v("Name")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    staticClass: "form-input mt-1 block w-full",
-                    attrs: { placeholder: "Your tag name" }
-                  })
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "mt-4" }, [
-                _c("div", { staticClass: "flex justify-end" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "py-2 px-4 mr-2 text-gray-700",
-                      attrs: { type: "submit" },
+            _c(
+              "form",
+              {
+                on: {
+                  submit: function($event) {
+                    $event.preventDefault()
+                    return _vm.addTag($event)
+                  }
+                }
+              },
+              [
+                _c("div", { staticClass: "mt-4" }, [
+                  _c("label", { staticClass: "block" }, [
+                    _c("span", { staticClass: "text-gray-700" }, [
+                      _vm._v("Name")
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.tag.name,
+                          expression: "tag.name"
+                        }
+                      ],
+                      staticClass: "form-input mt-1 block w-full",
+                      attrs: { placeholder: "Your tag name", required: "" },
+                      domProps: { value: _vm.tag.name },
                       on: {
-                        click: function($event) {
-                          $event.preventDefault()
-                          return _vm.$modal.hide("new-tag")
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.tag, "name", $event.target.value)
                         }
                       }
-                    },
-                    [_vm._v("Cancel")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    { staticClass: "btn btn-teal", attrs: { type: "submit" } },
-                    [_vm._v("Add Tag")]
-                  )
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "mt-4" }, [
+                  _c("div", { staticClass: "flex justify-end" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "py-2 px-4 mr-2 text-gray-700",
+                        attrs: { type: "submit" },
+                        on: {
+                          click: function($event) {
+                            $event.preventDefault()
+                            return _vm.$modal.hide("new-tag")
+                          }
+                        }
+                      },
+                      [_vm._v("Cancel\n                            ")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-teal",
+                        attrs: { type: "submit" }
+                      },
+                      [_vm._v("Add Tag")]
+                    )
+                  ])
                 ])
-              ])
-            ])
+              ]
+            )
           ])
         ])
       ]),
@@ -45773,45 +45723,76 @@ var render = function() {
           _c("hr"),
           _vm._v(" "),
           _c("div", [
-            _c("form", { attrs: { action: "#" } }, [
-              _c("div", { staticClass: "mt-4" }, [
-                _c("label", { staticClass: "block" }, [
-                  _c("span", { staticClass: "text-gray-700" }, [
-                    _vm._v("Name")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    staticClass: "form-input mt-1 block w-full",
-                    attrs: { placeholder: "Your tag name" }
-                  })
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "mt-4" }, [
-                _c("div", { staticClass: "flex justify-end" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "py-2 px-4 mr-2 text-gray-700",
-                      attrs: { type: "submit" },
+            _c(
+              "form",
+              {
+                on: {
+                  submit: function($event) {
+                    $event.preventDefault()
+                    return _vm.updateTag($event)
+                  }
+                }
+              },
+              [
+                _c("div", { staticClass: "mt-4" }, [
+                  _c("label", { staticClass: "block" }, [
+                    _c("span", { staticClass: "text-gray-700" }, [
+                      _vm._v("Name")
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.tag.name,
+                          expression: "tag.name"
+                        }
+                      ],
+                      staticClass: "form-input mt-1 block w-full",
+                      attrs: { placeholder: "Your tag name" },
+                      domProps: { value: _vm.tag.name },
                       on: {
-                        click: function($event) {
-                          $event.preventDefault()
-                          return _vm.$modal.hide("edit-tag")
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.tag, "name", $event.target.value)
                         }
                       }
-                    },
-                    [_vm._v("Cancel")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    { staticClass: "btn btn-teal", attrs: { type: "submit" } },
-                    [_vm._v("Edit Tag")]
-                  )
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "mt-4" }, [
+                  _c("div", { staticClass: "flex justify-end" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "py-2 px-4 mr-2 text-gray-700",
+                        attrs: { type: "submit" },
+                        on: {
+                          click: function($event) {
+                            $event.preventDefault()
+                            return _vm.$modal.hide("edit-tag")
+                          }
+                        }
+                      },
+                      [_vm._v("Cancel\n                            ")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-teal",
+                        attrs: { type: "submit" }
+                      },
+                      [_vm._v("Edit Tag")]
+                    )
+                  ])
                 ])
-              ])
-            ])
+              ]
+            )
           ])
         ])
       ]),
@@ -45826,7 +45807,11 @@ var render = function() {
           _vm._v(" "),
           _c("div", [
             _c("div", { staticClass: "mt-4" }, [
-              _c("p", [_vm._v("Are you sure you want to delete this tag?")])
+              _c("p", [
+                _vm._v("Are you sure you want to delete "),
+                _c("strong", [_vm._v(_vm._s(_vm.tag.name))]),
+                _vm._v(" tag?")
+              ])
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "mt-4" }, [
@@ -45843,12 +45828,12 @@ var render = function() {
                       }
                     }
                   },
-                  [_vm._v("Cancel")]
+                  [_vm._v("Cancel\n                        ")]
                 ),
                 _vm._v(" "),
                 _c(
                   "button",
-                  { staticClass: "btn btn-red", attrs: { type: "submit" } },
+                  { staticClass: "btn btn-red", on: { click: _vm.deleteTag } },
                   [_vm._v("Delete Tag")]
                 )
               ])
