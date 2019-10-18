@@ -14,7 +14,7 @@ class TagController extends Controller
         $tags = Tag::all();
 
         return view('dashboard.tags.index', [
-            'tags' => $tags
+            'tags' => $tags,
         ]);
     }
 
@@ -24,7 +24,7 @@ class TagController extends Controller
 
         Tag::create([
             'user_id' => auth()->user()->id,
-            'name' => $request->name
+            'name' => $request->name,
         ]);
 
         return response()->json('Created', 200);
@@ -35,7 +35,7 @@ class TagController extends Controller
         $request->validate(['name' => 'required']);
 
         $tag->update([
-            'name' => $request->name
+            'name' => $request->name,
         ]);
 
         return response()->json('Updated', 200);

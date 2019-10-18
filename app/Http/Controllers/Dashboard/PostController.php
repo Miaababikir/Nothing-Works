@@ -35,7 +35,7 @@ class PostController extends Controller
             'title' => $request->title,
             'slug' => $request->slug,
             'content' => $request->get('content'),
-            'user_id' => auth()->user()->id
+            'user_id' => auth()->user()->id,
         ]);
 
         $post->tags()->attach($request->tags);
