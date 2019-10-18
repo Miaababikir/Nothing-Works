@@ -12,4 +12,9 @@ class Post extends Model
     {
         return $this->belongsToMany(Tag::class);
     }
+
+    public function getContentAttribute($content)
+    {
+        return json_decode($content);
+    }
 }

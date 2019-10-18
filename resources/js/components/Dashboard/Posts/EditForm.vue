@@ -1,6 +1,6 @@
 <template>
     <div>
-        <form action="#" class="mt-6" @submit.prevent="create">
+        <form action="#" class="mt-6" @submit.prevent="update">
             <div class="flex">
                 <div class="w-3/4">
                     <div class="bg-white border rounded shadow min-h-screen">
@@ -29,7 +29,7 @@
                                 <div class="mt-4">
                                     <div class="block">
                                         <span class="text-gray-700">Tags</span>
-                                        <v-select multiple taggable push-tags selectOnTab label="name" :options="tags" v-model="post.tags"/>
+                                        <v-select multiple taggable push-tags selectOnTab label="name" :options="tags" v-model="post.tags" :value="selectedTags"/>
                                     </div>
                                 </div>
 
@@ -65,21 +65,16 @@
 
     export default {
         components: {vSelect},
-        props: ['tags'],
+        props: ['tags', 'data', 'selected-tags'],
         data() {
             return {
                 editor: null,
-                post: {
-                    title: '',
-                    slug: '',
-                    content: '',
-                    tags: [],
-                }
+                post: this.data
             }
         },
         created() {
             this.editor = new EditorJS({
-                placeholder: 'Add your content here',
+                data: this.post.content,
                 tools: {
                     header: Header,
                     list: List,
@@ -96,14 +91,14 @@
             }
         },
         methods: {
-            create() {
+            update() {
                 this.editor.save().then((outputData) => {
 
                     this.post.content = JSON.stringify(outputData);
                     this.post.slug = this.slug;
                     this.post.tags = this.post.tags.map((tag) => tag.id);
 
-                    axios.post('/dashboard/posts', this.post)
+                    axios.put(`/dashboard/posts/${this.data.id}`, this.post)
                         .then(response => location.reload());
                 });
             }

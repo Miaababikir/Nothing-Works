@@ -12,7 +12,10 @@ window.Vue = require('vue');
 
 Vue.use(VModal);
 
+Vue.component('posts', require('./components/Dashboard/Posts/Posts.vue').default);
 Vue.component('create-post', require('./components/Dashboard/Posts/CreateForm.vue').default);
+Vue.component('edit-post', require('./components/Dashboard/Posts/EditForm.vue').default);
+Vue.component('posts', require('./components/Dashboard/Posts/Posts.vue').default);
 Vue.component('post', require('./components/Dashboard/Posts/Post.vue').default);
 Vue.component('tags', require('./components/Dashboard/Tags/Tags.vue').default);
 

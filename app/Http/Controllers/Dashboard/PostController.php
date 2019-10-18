@@ -11,12 +11,16 @@ class PostController extends Controller
 {
     public function index()
     {
-        return view('posts.index');
+        $posts = auth()->user()->posts;
+
+        return view('dashboard.posts.index', [
+            'posts' => $posts
+        ]);
     }
 
     public function create()
     {
-        $tags = Tag::all();
+        $tags = auth()->user()->tags;
 
         return view('dashboard.posts.create', [
             'tags' => $tags
@@ -39,6 +43,17 @@ class PostController extends Controller
         ]);
 
         $post->tags()->attach($request->tags);
+    }
+
+    public function edit(Post $post)
+    {
+        $tags = auth()->user()->tags;
+
+        return view('dashboard.posts.edit', [
+            'post' => $post,
+            'tags' => $tags,
+            'selected_tags' => $post->tags->pluck('id'),
+        ]);
     }
 
     public function update(Request $request, Post $post)
