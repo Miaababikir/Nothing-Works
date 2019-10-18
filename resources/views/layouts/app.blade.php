@@ -16,7 +16,7 @@
 <div id="app">
     <nav>
         <div class="container mx-auto px-6 py-2 flex justify-between items-center">
-            <a class="font-bold text-2xl flex items-center" href="#">
+            <a class="text-2xl flex items-center" href="#">
                 <img src="images/logo.png" alt="logo" class="h-12 "> <span>Nothing Works</span>
             </a>
             <div class="block lg:hidden">
@@ -36,7 +36,7 @@
                         <a class="px-4 hover:text-gray-800" href="#">Login</a>
                     </li>
                     <li>
-                        <a class="px-4 py-2 text-white rounded bg-teal-400 hover:bg-teal-500" href="#">Signup</a>
+                        <a class="px-4 py-2 text-white rounded bg-teal-400 hover:bg-teal-500" href="#">Register</a>
                     </li>
                 </ul>
             </div>
@@ -45,15 +45,22 @@
 
     <div class="py-20" style="background: linear-gradient(90deg, #4fd1c5 0%, #63b3ed 100%)">
         <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold mb-2 text-white">
-                The professional publishing platform
-            </h2>
-            <h3 class="text-2xl mb-8 text-gray-200">
-                Fully open source, adaptable platform for building and running a modern online publication.
-            </h3>
-            <button class="bg-white font-bold rounded-full py-4 px-8 shadow-lg uppercase tracking-wider">
-                Signup Now
-            </button>
+            <div class="flex flex-col md:flex-row md:justify-between md:items-center">
+                <div>
+                    <h2 class="text-4xl font-bold mb-2 text-white">
+                        The professional publishing platform
+                    </h2>
+                    <h3 class="text-2xl mb-8 text-gray-200">
+                        Fully open source, adaptable platform for building a modern publication.
+                    </h3>
+                    <button class="bg-white font-bold rounded py-4 px-8 shadow-lg uppercase tracking-wider">
+                        Register Now
+                    </button>
+                </div>
+                <div>
+                    <img src="/images/content.svg" alt="Header" class="h-64">
+                </div>
+            </div>
         </div>
     </div>
 
@@ -273,7 +280,7 @@
     </footer>
 </div>
 
-<!-- Scripts -->
+
 <script src="{{ mix('js/app.js') }}"></script>
 </body>
 </html>

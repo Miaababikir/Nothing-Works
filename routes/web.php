@@ -24,9 +24,14 @@ Route::prefix('/dashboard')->middleware('auth')->group(function () {
     Route::put('/tags/{tag}', 'Dashboard\TagController@update');
     Route::delete('/tags/{tag}', 'Dashboard\TagController@destroy');
 
+    Route::get('/posts', 'Dashboard\PostController@index');
+    Route::get('/posts/create', 'Dashboard\PostController@create');
+    Route::post('/posts', 'Dashboard\PostController@store');
+    Route::get('/posts/{post}', 'Dashboard\PostController@show');
+    Route::put('/posts/{post}', 'Dashboard\PostController@update');
+    Route::get('/posts/{post}/edit', 'Dashboard\PostController@edit');
+
     Route::view('/', 'dashboard.index');
-    Route::view('/posts', 'dashboard.posts.index');
-    Route::view('/posts/show', 'dashboard.posts.show');
-    Route::view('/posts/create', 'dashboard.posts.create');
+
 });
 

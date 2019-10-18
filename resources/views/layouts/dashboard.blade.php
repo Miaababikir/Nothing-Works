@@ -30,7 +30,6 @@
 
     @include('dashboard.includes.footer')
 
-    <!-- Scripts -->
     <script src="{{ mix('js/dashboard.js') }}"></script>
 </body>
 </html>

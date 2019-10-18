@@ -10,7 +10,7 @@
                 <div class="flex justify-between items-center">
                     <h2 class="text-3xl font-medium">Create new post</h2>
                 </div>
-                <create-post />
+                <create-post :tags="{{ $tags }}"/>
             </div>
         </div>
 

@@ -2,6 +2,7 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
+use App\Post;
 use App\Tag;
 use App\User;
 use Faker\Generator as Faker;
@@ -31,6 +32,15 @@ $factory->define(User::class, function (Faker $faker) {
 $factory->define(Tag::class, function (Faker $faker) {
     return [
         'name' => $faker->word,
+        'user_id' => factory(User::class)
+    ];
+});
+
+$factory->define(Post::class, function (Faker $faker) {
+    return [
+        'title' => 'This is the title',
+        'slug' => Str::slug('This is the title'),
+        'content' => 'this is the content',
         'user_id' => factory(User::class)
     ];
 });
